@@ -58,8 +58,8 @@ A video store rental Command Line Interface (CLI) with the following minimum fun
 - List videos
 - Check out video to customer
 - Check in video
-- List videos checked out to a customer
-- List all customers who have currently checked out a video
+- [Optional] List videos checked out to a customer
+- [Optional] List all customers who have currently checked out a video
 
 ## How to Complete and Submit
 
