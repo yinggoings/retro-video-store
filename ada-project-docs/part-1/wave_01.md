@@ -245,7 +245,6 @@ Creates a new video with the given params.
 Request Body Param | Type | Details
 --- | --- | ---
 `title` | string | The title of the video
-`overview` | string | An overview of the video
 `release_date` | datetime | Represents the date of the video's release
 `total_inventory` | integer | The total quantity of this video in the store
 
