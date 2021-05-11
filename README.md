@@ -4,7 +4,7 @@ Once upon a time in ye olden days to watch a movie a person had to head down to 
 
 For Part 1 of the project (which will be built in this repository) we will need a Video Store API to handle the back end. 
 
-In keeping with our retro vibe, for Part 2 of the project we will build a Command Line Interface (CLI) for the front end.
+In keeping with our retro vibe, for Part 2 of the project (which has [it's own repository](https://github.com/AdaGold/video-store-cli)), we will build a Command Line Interface (CLI) for the front end.
 
 ## Postman Tests instead of Pytest
 
@@ -52,4 +52,3 @@ At submission time, no matter where you are, submit the project via Learn.
 1. [Wave 1: CRUD for two models](ada-project-docs/part-1/wave_01.md)
 1. [Wave 2: Custom endpoints](ada-project-docs/part-1/wave_02.md)
 1. [Wave 3: Optional extensions](ada-project-docs/part-1/wave_03.md)
-
