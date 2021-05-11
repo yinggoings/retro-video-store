@@ -31,7 +31,7 @@ This project is broken up into two parts, Part 1: Video Store API and Part 2: [V
 
 ## Goal
 
-A video store API with the following minimum functionality:
+The full functionality is spelled out further in the "Project Directions" files (linked below). At a high-level, our goal is to create a video store API with the following minimum functionality:
 - Customers, all CRUD actions
 - Videos, all CRUD actions
 - Video rental checkout, custom endpoint
@@ -52,6 +52,5 @@ At submission time, no matter where you are, submit the project via Learn.
 1. [Wave 1: CRUD for two models](ada-project-docs/part-1/wave_01.md)
 1. [Wave 2: Custom endpoints](ada-project-docs/part-1/wave_02.md)
 1. [Wave 3: Optional extensions](ada-project-docs/part-1/wave_03.md)
-
 
 
