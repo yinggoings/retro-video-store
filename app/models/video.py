@@ -21,3 +21,16 @@ class Video(db.Model):
             "phone": self.phone,
             "videos_checked_out_count": self.videos_checked_out_count,
         }
+
+    @classmethod
+    def get_all_videos(cls):
+        return cls.query.all()
+
+    @classmethod
+    def get_video_by_id(cls, id):
+        return cls.query.get(id)
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+        
