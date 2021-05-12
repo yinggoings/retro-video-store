@@ -5,7 +5,7 @@ These really are **optional** - if you've gotten here and you have time left, th
 ## Enhancements
 
 ### Query Parameters
-Any endpoint that returns a list should accept 3 _optional_ [query parameters](http://guides.rubyonrails.org/action_controller_overview.html#parameters):
+Any endpoint that returns a list should accept 3 _optional_ query parameters:
 
 | Name   | Value   | Description
 |--------|---------|------------
