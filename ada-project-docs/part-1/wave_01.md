@@ -2,7 +2,7 @@
 
 ## Goal
 
-Our video store API shoudl be able to work with two entities, `Customer` and `Video`.
+Our video store API should be able to work with two entities, `Customer` and `Video`.
 
 Customers are entities that describe a customer at the video store.  They contain:
 
@@ -65,7 +65,7 @@ Required endpoints:
 1. PUT `/customers/<id>`
 1. DELETE `/customers/<id>`
 
-### `GET` `/customers` Details
+### `GET` `/customers`  details
 
 Lists all existing customers and details about each customer.
 
@@ -104,7 +104,7 @@ Status: `200`
 
 - The API should return an empty array and a status `200` if there are no customers.
 
-### `GET /customer/:id` Details
+### `GET /customer/:id`  details
 Gives back details about specific customer.
 
 #### Required Arguments
@@ -115,7 +115,7 @@ Arg | Type | Details
 
 #### Response
 
-Typical success response (this are the minimum required fields that the Postman tests will be looking for):
+Typical success response (these are the minimum required fields that the Postman tests will be looking for):
 
 Status: `200`
 
@@ -172,7 +172,7 @@ Required endpoints:
 1. PUT `/videos/<id>`
 1. DELETE `/videos/<id>`
 
-## `GET /videos` Details
+## `GET /videos`  details
 Lists all existing videos and details about each video.
 
 #### Required Arguments
@@ -208,7 +208,7 @@ Status: `200`
 
 - The API should return an empty array and a status `200` if there are no videos.
 
-### `GET /video/:id` Details
+### `GET /video/:id`  details
 Gives back details about specific video in the store's inventory.
 
 #### Required Arguments
@@ -237,7 +237,7 @@ Status: `200`
 
 - The API should return back detailed errors and a status `404: Not Found` if this video does not exist.
 
-### `POST /videos` details
+### `POST /videos`  details
 Creates a new video with the given params.
 
 #### Required Request Body Parameters
