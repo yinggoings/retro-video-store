@@ -1,5 +1,11 @@
 # Wave 2: Custom Endpoints
 
+## `Rental` Model
+
+These custom endpoints are best served with a `Rental` model.  You will need to determine the columns for the `Rental` table and establish the following relationships between the tables using SQLAlchemy.
+
+![ERD Diagram](/assets/retro-video-store.svg)
+
 ## `POST /rentals/check-out`
 
 [Checks out](https://www.merriam-webster.com/dictionary/checkout) a video to a customer, and updates the data in the database as such.
@@ -72,7 +78,7 @@ Status: `200`
 - The API should return back detailed errors and a status `404: Not Found` if the customer does not exist
 - The API should return back detailed errors and a status `404: Not Found` if the video does not exist
 
-## `GET /customers/:id/rentals`
+## `GET /customers/<id>/rentals`
 
 List the videos a customer _currently_ has checked out
 
@@ -119,7 +125,7 @@ Status: `200`
 - The API should return back detailed errors and a status `404: Not Found` if the customer does not exist
 - The API should return an empty list if the customer does not have any videos checked out.
 
-## `GET /video/:id/rentals`
+## `GET /video/<id>/rentals`
 
 List the customers who _currently_ have the video checked out
 
