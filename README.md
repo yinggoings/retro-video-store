@@ -43,8 +43,8 @@ At submission time, no matter where you are, submit the project via Learn.
 
 ## Project Directions
 
-1. [Setup](ada-project-docs/part-1/setup.md)
-1. [Hints and suggestions](ada-project-docs/part-1/hints.md)
-1. [Wave 1: CRUD for two models](ada-project-docs/part-1/wave_01.md)
-1. [Wave 2: Custom endpoints](ada-project-docs/part-1/wave_02.md)
-1. [Wave 3: Optional extensions](ada-project-docs/part-1/wave_03.md)
+1. [Setup](ada-project-docs/setup.md)
+1. [Hints and suggestions](ada-project-docs/hints.md)
+1. [Wave 1: CRUD for two models](ada-project-docs/wave_01.md)
+1. [Wave 2: Custom endpoints](ada-project-docs/wave_02.md)
+1. [Wave 3: Optional extensions](ada-project-docs/wave_03.md)
