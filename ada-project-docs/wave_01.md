@@ -369,6 +369,32 @@ Status: `200`
 - The API should return back a `400 Bad Request` response for missing or invalid fields in the request body.
   - For example, if `total_inventory` or `available_inventory` are missing or not numbers
 
+
+### `DELETE /video/<id>`  details
+Deletes a specific video.
+
+#### Required Arguments
+
+Arg | Type | Details
+--- | --- | ---
+`id` | integer | The id of the video
+
+#### Response
+
+Typical success response (these are the minimum required fields that the Postman tests will be looking for):
+
+Status: `200`
+
+```json
+{
+    "id": 12
+}
+```
+
+#### Errors & Edge Cases to Check
+
+- The API should return back detailed errors and a status `404: Not Found` if this video does not exist.
+
 ## Tests
 
 There are no Pytest tests for this project.  There are Postman test scripts for all of these endpoints.  If you want to write your own tests for this project, we recommend using the tests in Task List as a template.
