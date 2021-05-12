@@ -1,0 +1,26 @@
+version: "2.1"
+
+services:
+  postgres:
+    image: "postgres"
+    healthcheck:
+      test: exit 0
+    expose:
+      - "5432"
+    environment:
+      - POSTGRES_DB=retro_video_store_test
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  testenv:
+    build: .
+    command: sh test.sh
+    environment:
+      - SQLALCHEMY_TEST_DATABASE_URI=postgresql://postgres:postgres@postgres:5432/retro_video_store_test
+      - FLASK_ENV=test
+    depends_on:
+      postgres:
+        condition: service_healthy
+    links:
+      - postgres
+      

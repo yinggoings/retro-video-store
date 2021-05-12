@@ -36,7 +36,7 @@ Install dependencies (we've already gathered them all into a `requirements.txt` 
 
 ## Setting Up Development and Test Databases
 
-Create two databases:
+Create a database:
 
 1. A development database named `video_store_api_development`
 1. [OPTIONAL] A test database named `video_store_api_test`
@@ -62,7 +62,7 @@ SQLALCHEMY_TEST_DATABASE_URI=postgresql+psycopg2://postgres:postgres@localhost:5
 
 Run `$ flask db init`.
 
-**_After you make your first model in Wave 1_**, run the other commands `migrate` and `upgrade`.
+**_After you make your first model in Wave 1_**, run the other commands `flask db migrate` and `flask db upgrade`.
 
 ## Run `$ flask run` or `$ FLASK_ENV=development flask run`
 
