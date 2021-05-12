@@ -31,6 +31,27 @@ def customers_index():
     customers = [customer.to_json() for customer in Customer.get_all_customers()]
     return jsonify(customers), 200
 
+@customers_bp.route("", methods=["POST"])
+def customers_create():
+    request_body = request.get_json()
+
+    if invalid_customer_data(request_body):
+        return {
+            "message": "Invalid Request"
+        }, 400
+    
+    name = request_body.get("name")
+    postal_code = request_body.get("postal_code")
+    phone = request_body.get("phone")
+
+    customer = Customer(name=name, postal_code=postal_code, phone=phone)
+    customer.save()
+
+    return { 
+        "id": customer.id,
+    }, 201
+
+
 @videos_bp.route("", methods=["POST"])
 def videos_create():
     request_body = request.get_json()
@@ -40,11 +61,13 @@ def videos_create():
             "message": "Invalid Request"
         }, 400
     
-    name = request_body.get("name")
-    postal_code = request_body.get("postal_code")
-    phone = request_body.get("phone")
-    video = Video(name=name, postal_code=postal_code, phone=phone)
+    title = request_body.get("title")
+    release_date = request_body.get("release_date")
+    total_inventory = request_body.get("phone")
+
+    video = Video(title=title, release_date=release_date, total_inventory=total_inventory)
     video.save()
+
     return { 
         "id": video.id,
     }, 201
