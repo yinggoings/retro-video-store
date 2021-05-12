@@ -20,13 +20,16 @@ def invalid_customer_data(customer_json):
 
 @videos_bp.route("", methods=["GET"])
 def videos_index():
-    videos = Video.get_all_videos()
+    # newlist = [x for x in fruits if "a" in x]
+
+    videos = [video.to_json() for video in Video.get_all_videos()]
     return jsonify(videos), 200
 
 
 @customers_bp.route("", methods=["GET"])
 def customers_index():
-    return jsonify(Customer.get_all_customers()), 200
+    customers = [customer.to_json() for customer in Customer.get_all_customers()]
+    return jsonify(customers), 200
 
 @videos_bp.route("", methods=["POST"])
 def videos_create():
