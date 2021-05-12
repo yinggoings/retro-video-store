@@ -10,10 +10,6 @@ In keeping with our retro vibe, for Part 2 of the project (which has [it's own r
 
 This project is designed to be more open ended than anything you've written in the past.  To that end, we will not be giving you Pytest tests like we have on previous projects.  We invite you to write your own tests, using the tests from Task List as a framework, but writing tests is not a required part of the project.  We will provide a suite of Postman tests, which are scripts that can be run inside of Postman to test your API. 
 
-## Timeline
-
-This project is broken up into two parts, Part 1: Video Store API and Part 2: [Video Store CLI](https://github.com/AdaGold/video-store-cli).  Each part has it's own submission deadline.  The Video Store API submission deadline is May 21st, 9:00pm.  The Video Store CLI submission deadline is May 28th, 9:00pm.
-
 ## Skills Assessed
 
 - Following directions and reading comprehension
