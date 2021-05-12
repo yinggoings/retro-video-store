@@ -6,6 +6,8 @@ These custom endpoints are best served with a `Rental` model.  You will need to 
 
 ![ERD Diagram](/assets/retro-video-store.svg)
 
+*Fig. ERD Diagram of the finished database.*
+
 ## `POST /rentals/check-out`
 
 [Checks out](https://www.merriam-webster.com/dictionary/checkout) a video to a customer, and updates the data in the database as such.
