@@ -104,7 +104,7 @@ Status: `200`
 
 - The API should return an empty array and a status `200` if there are no customers.
 
-### `GET /customer/:id`  details
+### `GET /customer/<id>`  details
 Gives back details about specific customer.
 
 #### Required Arguments
@@ -161,6 +161,71 @@ Status: `201: Created`
 
 - The API should return back detailed errors and a status `400: Bad Request` if the customer does not have any of the required fields to be valid.
 
+### `PUT /customer/<id>`  details
+
+Updates and returns details about specific customer.
+
+#### Required Route Arguments
+
+Arg | Type | Details
+--- | --- | ---
+`id` | integer | The id of the customer
+
+#### Required Request Body Parameters
+
+Request Body Param | Type | Details
+--- | --- | ---
+`name` | string | The name of the customer
+`postal_code` | string | The postal code of the customer
+`phone` | string | The phone of the customer
+
+#### Response
+
+Typical success response (these are the minimum required fields that the Postman tests will be looking for):
+
+Status: `200`
+
+```json
+{
+    "id": 2,
+    "name": "Curran Stout",
+    "registered_at": "Wed, 16 Apr 2014 21:40:20 -0700",
+    "postal_code": "94267",
+    "phone": "(908) 949-6758",
+    "videos_checked_out_count": 0
+}
+```
+
+#### Errors & Edge Cases to Check
+
+- The API should return back detailed errors and a status `404: Not Found` if this customer does not exist.
+- The API should return a `400: Bad Request`, if any of the request body fields are missing or invalid.
+  - For example if the `videos_checked_out_count` is not a number.
+
+### `DELETE /customer/<id>`  details
+Deletes a specific customer.
+
+#### Required Arguments
+
+Arg | Type | Details
+--- | --- | ---
+`id` | integer | The id of the customer
+
+#### Response
+
+Typical success response (these are the minimum required fields that the Postman tests will be looking for):
+
+Status: `200`
+
+```json
+{
+    "id": 2
+}
+```
+
+#### Errors & Edge Cases to Check
+
+- The API should return back detailed errors and a status `404: Not Found` if this customer does not exist.
 
 ## `/videos` CRUD
 
@@ -208,7 +273,7 @@ Status: `200`
 
 - The API should return an empty array and a status `200` if there are no videos.
 
-### `GET /video/:id`  details
+### `GET /video/<id>`  details
 Gives back details about specific video in the store's inventory.
 
 #### Required Arguments
