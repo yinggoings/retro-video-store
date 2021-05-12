@@ -329,6 +329,46 @@ Status: `201: Created`
 
 - The API should return back detailed errors and a status `400: Bad Request` if the video does not have any of the required fields to be valid.
 
+### `PUT /video/<id>`  details
+Gives back details about specific video in the store's inventory.
+
+#### Required Route Arguments
+
+Arg | Type | Details
+--- | --- | ---
+`id` | integer | The id of the video
+
+#### Required Request Body Parameters
+
+Request Body Param | Type | Details
+--- | --- | ---
+`title` | string | The title of the video
+`release_date` | datetime | Represents the date of the video's release
+`total_inventory` | integer | The total quantity of this video in the store
+
+
+#### Response
+
+Typical success response (this are the minimum required fields that the Postman tests will be looking for):
+
+Status: `200`
+
+```json
+{
+  "id": 1,
+  "title": "Blacksmith Of The Banished",
+  "release_date": "1979-01-18",
+  "total_inventory": 10,
+  "available_inventory": 9
+}
+```
+
+#### Errors & Edge Cases to Check
+
+- The API should return back detailed errors and a status `404: Not Found` if this video does not exist.
+- The API should return back a `400 Bad Request` response for missing or invalid fields in the request body.
+  - For example, if `total_inventory` or `available_inventory` are missing or not numbers
+
 ## Tests
 
 There are no Pytest tests for this project.  There are Postman test scripts for all of these endpoints.  If you want to write your own tests for this project, we recommend using the tests in Task List as a template.
