@@ -72,4 +72,12 @@ def videos_create():
         "id": video.id,
     }, 201
 
+@customers_bp.route("/<customer_id>", methods=["GET"])
+def customers_show(customer_id):
+    customer = Customer.get_customer_by_id(customer_id)
+    if not customer:
+        return {
+            "message": f"Customer {customer_id} was not found"
+        }, 404
     
+    return customer.to_json(), 200
