@@ -25,7 +25,7 @@ Things to note:
   - Videos can be sorted by `title` and `release_date`
   - Overdue rentals can be sorted by `title`, `name`, `checkout_date` and `due_date`
 - If the client requests both sorting and pagination, pagination should be relative to the sorted order
-- Check out the [will_paginate gem](https://github.com/mislav/will_paginate)
+- Check out the [paginate method](https://flask-sqlalchemy.palletsprojects.com/en/2.x/api/#flask_sqlalchemy.BaseQuery.paginate)
 
 ### More Endpoints: Inventory Management
 All these endpoints should support all 3 query parameters. All fields are sortable.
