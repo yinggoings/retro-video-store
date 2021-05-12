@@ -1,9 +1,7 @@
 from sqlalchemy.orm import relationship
-from dataclasses import dataclass
 
 from app import db
 
-@dataclass
 class Video(db.Model):
 
     __tablename__ = "videos"
@@ -12,6 +10,15 @@ class Video(db.Model):
     title = db.Column(db.String(128))
     release_date = db.Column(db.DateTime(), nullable=True)
     total_inventory = db.Column(db.Integer, default=0)
+    available_inventory = db.Column(db.Integer, default=total_inventory)
+
+    def json_details(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "release_date": self.release_date,
+            "total_inventory": self.total_inventory,
+        }
 
     def to_json(self):
         return {
