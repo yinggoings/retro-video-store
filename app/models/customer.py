@@ -1,4 +1,5 @@
 from sqlalchemy.orm import relationship
+from datetime import datetime, timezone
 from app import db
 
 class Customer(db.Model):
@@ -11,6 +12,7 @@ class Customer(db.Model):
     postal_code = db.Column(db.String(32))
     phone = db.Column(db.String(32))
     videos_checked_out_count = db.Column(db.Integer, default=0)
+    
 
     def to_json(self):
         return {
@@ -31,6 +33,11 @@ class Customer(db.Model):
         return cls.query.get(id)
 
     def save(self):
+        if not self.registered_at:
+            self.registered_at = datetime.now(timezone.utc)
         db.session.add(self)
         db.session.commit()
                 
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
