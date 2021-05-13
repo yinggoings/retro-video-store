@@ -3,6 +3,7 @@ from flask import Blueprint, jsonify, request
 from app import db
 from app.models.customer import Customer
 from app.models.video import Video
+from app.models.rental import Rental
 import os
 
 videos_bp = Blueprint("videos", __name__, url_prefix="/videos")
@@ -18,6 +19,10 @@ def invalid_customer_data(customer_json):
     return "name" not in customer_json or  \
         "postal_code" not in customer_json or \
         "phone" not in customer_json
+
+def invalid_rental_data(customer_json):
+    return "customer_id" not in customer_json or  \
+        "video_id" not in customer_json
 
 @videos_bp.route("", methods=["GET"])
 def videos_index():
@@ -189,5 +194,62 @@ def check_out_video():
             "message": f"Customer {request_body['customer_id']} not found"
         }, 404
 
-    rental = Rental(customer_id=customer.id, video_id=video.id)
-    rental.save
+    result = Rental.check_out(video_id=video.id, customer_id=customer.id)
+    
+    return result
+
+@rentals_bp.route("check-in", methods=["POST"])
+def check_in_video():
+    request_body = request.get_json()
+
+    if invalid_rental_data(request_body):
+        return {
+            "message": "Invalid request body"
+        }, 400
+
+    video = Video.get_video_by_id(request_body["video_id"])
+
+    if not video:
+        return {
+            "message": f"Video {request_body['video_id']} not found."
+        }, 404
+    
+    customer = Customer.get_customer_by_id(request_body['customer_id'])
+
+    if not customer:
+        return {
+            "message": f"Customer {request_body['customer_id']} not found"
+        }, 404
+
+    result = Rental.check_in(video_id=video.id, customer_id=customer.id)
+    
+    return result
+
+@videos_bp.route('<video_id>/rentals', methods=["GET"])
+def get_rentals_for_video(video_id):
+    video = Video.get_video_by_id(video_id)
+    if not video:
+        return {
+            "message": f"Video {id} not found"
+        }, 404
+
+    rentals = video.rentals
+
+    results = []
+    for rental in rentals:
+        results.append(rental.to_json())
+
+    return jsonify(results), 200
+
+@customers_bp.route('<customer_id>/rentals', methods=["GET"])
+def get_rentals_for_customer(customer_id):
+    customer = Customer.get_customer_by_id(customer_id)
+    if not customer:
+        return {
+            "message": f"Customer {customer_id} not found"
+        }, 404
+
+    rentals = customer.rentals
+
+    results = [rental.to_json() for rental in rentals]
+    return jsonify(results), 200

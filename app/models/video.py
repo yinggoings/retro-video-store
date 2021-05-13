@@ -11,6 +11,7 @@ class Video(db.Model):
     release_date = db.Column(db.DateTime(), nullable=True)
     total_inventory = db.Column(db.Integer, default=0)
     available_inventory = db.Column(db.Integer, default=total_inventory)
+    rentals = db.relationship('Rental', backref='rental', lazy=True)
 
     def json_details(self):
         return {

@@ -12,6 +12,7 @@ class Customer(db.Model):
     postal_code = db.Column(db.String(32))
     phone = db.Column(db.String(32))
     videos_checked_out_count = db.Column(db.Integer, default=0)
+    rentals = db.relationship('Rental', backref='rentals', lazy=True)
     
 
     def to_json(self):
@@ -30,7 +31,7 @@ class Customer(db.Model):
 
     @classmethod
     def get_customer_by_id(cls, id):
-        return cls.query.get(id)
+        return Customer.query.get(id)
 
     def save(self):
         if not self.registered_at:
