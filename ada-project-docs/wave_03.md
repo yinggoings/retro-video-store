@@ -43,7 +43,7 @@ Fields to return:
 - `due_date`
 
 
-#### `GET /videos/:id/history`
+#### `GET /videos/<id>/history`
 List customers that have checked out a copy of the video _in the past_
 
 URI parameters:
@@ -57,7 +57,7 @@ Fields to return:
 - `due_date`
 
 
-#### `GET /customers/:id/history`
+#### `GET /customers/<id>/history`
 List the videos a customer has checked out _in the past_
 
 URI parameters:
