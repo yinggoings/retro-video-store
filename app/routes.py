@@ -7,6 +7,7 @@ import os
 
 videos_bp = Blueprint("videos", __name__, url_prefix="/videos")
 customers_bp = Blueprint("customers", __name__, url_prefix="/customers")
+rentals_bp = Blueprint("rentals", __name__, url_prefix="/rentals")
 
 def invalid_video_data(video_json):
     return "title" not in video_json or  \
