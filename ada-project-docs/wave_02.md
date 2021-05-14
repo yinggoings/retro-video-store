@@ -84,15 +84,6 @@ Status: `200`
 
 List the videos a customer _currently_ has checked out
 
-URI parameters:
-- `id`: Customer ID
-
-Fields to return:
-- `title`
-- `checkout_date`
-- `due_date`
-
-
 #### Required Arguments
 
 Arg | Type | Details
@@ -109,13 +100,11 @@ Status: `200`
 
 [
     {
-        "id": 1,
         "release_date": "Wed, 01 Jan 1958 00:00:00 GMT",
         "title": "Vertigo",
         "due_date": "Thu, 13 May 2021 19:27:47 GMT",
     },
     {
-        "id": 2,
         "release_date": "Wed, 01 Jan 1941 00:00:00 GMT",
         "title": "Citizen Kane",
         "due_date": "Thu, 13 May 2021 19:28:00 GMT",
@@ -130,15 +119,6 @@ Status: `200`
 ## `GET /video/<id>/rentals`
 
 List the customers who _currently_ have the video checked out
-
-URI parameters:
-- `id`: Video ID
-
-Fields to return:
-- `title`
-- `checkout_date`
-- `due_date`
-
 
 #### Required Arguments
 
@@ -156,19 +136,15 @@ Status: `200`
 [
     {
         "due_date": "Thu, 13 May 2021 21:36:38 GMT",
-        "id": 5,
         "name": "Edith Wong",
         "phone": "(555) 555-5555",
         "postal_code": "99999",
-        "registered_at": "Thu, 06 May 2021 17:31:04 GMT"
     },
     {
         "due_date": "Thu, 13 May 2021 21:36:47 GMT",
-        "id": 6,
         "name": "Ricarda Mowery",
         "phone": "(555) 555-5555",
         "postal_code": "99999",
-        "registered_at": "Thu, 06 May 2021 17:32:08 GMT"
     }
 ]
 
