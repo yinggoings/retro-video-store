@@ -1,14 +1,4 @@
-# Retro Video Store
-
-Once upon a time in ye olden days to watch a movie a person had to head down to their local video store and rent a video.  We are going to step into the shoes of this old timey retro video store owner and build for ourselves all of the tools that we need in order to run our successful corner video store.  
-
-For Part 1 of the project (which will be built in this repository) we will need a Video Store API to handle the back end. 
-
-In keeping with our retro vibe, for Part 2 of the project (which has [it's own repository](https://github.com/AdaGold/video-store-cli)), we will build a Command Line Interface (CLI) for the front end.
-
-## Postman Tests instead of Pytest
-
-This project is designed to be more open ended than anything you've written in the past.  To that end, we will not be giving you Pytest tests like we have on previous projects.  We invite you to write your own tests, using the tests from Task List as a framework, but writing tests is not a required part of the project.  We will provide a suite of Postman tests, which are scripts that can be run inside of Postman to test your API. 
+# Retro Video Store API 
 
 ## Skills Assessed
 
@@ -27,6 +17,12 @@ This project is designed to be more open ended than anything you've written in t
 
 ## Goal
 
+Once upon a time in ye olden days to watch a movie a person had to head down to their local video store and rent a video.  We are going to step into the shoes of this old timey retro video store owner and build for ourselves all of the tools that we need in order to run our successful corner video store.  
+
+For Part 1 of the project (which will be built in this repository) we will need a Video Store API to handle the back end. 
+
+In keeping with our retro vibe, for Part 2 of the project (which has [it's own repository](https://github.com/AdaGold/video-store-cli)), we will build a Command Line Interface (CLI) for the front end.
+
 The full functionality is spelled out further in the "Project Directions" files (linked below). At a high-level, our goal is to create a video store API with the following minimum functionality:
 - Customers, all CRUD actions
 - Videos, all CRUD actions
@@ -34,6 +30,10 @@ The full functionality is spelled out further in the "Project Directions" files 
 - Video rental check in, custom endpoint
 - Listing videos checked out to a customer, custom endpoint
 - Listing customers who have checked out a video, custom endpoint
+
+## Postman Tests instead of Pytest
+
+This project is designed to be more open ended than anything you've written in the past.  To that end, we will not be giving you Pytest tests like we have on previous projects.  We invite you to write your own tests, using the tests from Task List as a framework, but writing tests is not a required part of the project.  We will provide a suite of Postman tests, which are scripts that can be run inside of Postman to test your API. 
 
 ## How to Complete and Submit
 
