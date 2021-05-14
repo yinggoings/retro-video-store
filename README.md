@@ -24,7 +24,6 @@ For Part 1 of the project (which will be built in this repository) we will need 
 In keeping with our retro vibe, for Part 2 of the project (which has [it's own repository](https://github.com/AdaGold/video-store-cli)), we will build a Command Line Interface (CLI) for the front end.
 
 The full functionality is spelled out further in the "Project Directions" files (linked below). At a high-level, our goal is to create a video store API with the following minimum functionality:
-
 - Customers, all CRUD actions
 - Videos, all CRUD actions
 - Video rental checkout, custom endpoint
