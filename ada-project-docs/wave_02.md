@@ -116,7 +116,7 @@ Status: `200`
 - The API should return back detailed errors and a status `404: Not Found` if the customer does not exist
 - The API should return an empty list if the customer does not have any videos checked out.
 
-## `GET /video/<id>/rentals`
+## `GET /videos/<id>/rentals`
 
 List the customers who _currently_ have the video checked out
 
