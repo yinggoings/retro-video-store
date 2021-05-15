@@ -79,6 +79,7 @@ Status: `200`
 
 - The API should return back detailed errors and a status `404: Not Found` if the customer does not exist
 - The API should return back detailed errors and a status `404: Not Found` if the video does not exist
+- The API should return back detailed errors and a status `400: Bad Request` if the video and customer do not match a current rental
 
 ## `GET /customers/<id>/rentals`
 
