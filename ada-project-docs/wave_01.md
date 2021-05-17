@@ -37,7 +37,6 @@ For this project, the list of errors should be formatted like this:
 ]
 
 // for a rental endpoint
-
 [
    "video_id must match a video in the video store database"
 ]
