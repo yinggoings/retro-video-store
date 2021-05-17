@@ -23,8 +23,8 @@ Our goal for this wave is to be able to do all CRUD actions for these two entiti
 
 It's crucial for all APIs to be able to handle errors. For every required endpoint described in this project, handle errors in this pattern.
 
-If something goes wrong, your API should return:
-- an appropriate [HTTP status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+If something goes wrong...
+- Your API should return an appropriate HTTP status code.
 - For POST and PUT requests, responses with 4XX response codes should also return an array of error messages to explain what is wrong with the request.
 
 For this project, the list of errors should be formatted like this:
