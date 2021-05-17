@@ -25,22 +25,27 @@ It's crucial for all APIs to be able to handle errors. For every required endpoi
 
 If something goes wrong...
 - Your API should return an appropriate HTTP status code.
-- For POST and PUT requests, responses with 4XX response codes should also return an array of error messages to explain what is wrong with the request.
+- For POST and PUT requests, responses with 4XX response codes should also return a response body with some indication of what went wrong.
 
-For this project, the list of errors should be formatted like this:
+
+If something goes wrong...
+- Your API should return an appropriate HTTP status code.
+- For POST and PUT requests, responses with 4XX response codes should also return a response body with some indication of what went wrong.
+
+This could be something as simple as:
 
 ```json
-// for a video endpoint
+{
+        "details": "Invalid data"
+}
+```
+
+...or something slightly more complex like:
+```json
 [
    "title must be provided and it must be a string",
    "total_inventory must be provided and it must be a number"
 ]
-
-// for a rental endpoint
-[
-   "video_id must match a video in the video store database"
-]
-
 ```
 
 # Requirements
