@@ -44,7 +44,7 @@ To this end, we have provided a set of [smoke tests](http://softwaretestingfunda
 
 Smoke tests are a *type of automated test.* The responsibility of smoke tests is to use more language/tool-agnostic set of test cases and to verify if something works very broadly. They are written to be fast and to check the most important features of an app.
 
-Our smoke tests are *not* written in Ruby. They are formatted in JSON, and we will use Postman to run them (and not `rails test`.) This layer of testing helps us test that the API works, without relying on Ruby's Minitest.
+Our smoke tests are *not* written in Python. They are formatted in JSON, and we will use Postman to run them (and not `pytest`.) This layer of testing helps us test that the API works, without relying on Python's Pytest.
 
 <details>
   <summary>Want a little bit more explanation about smoke tests, unit tests, integration tests?</summary>
@@ -74,7 +74,6 @@ The smoke tests live in the [test folder](postman-tests). To run them:
 1. Click `Import` in the top left
 1. Drag-and-drop the file into the box
 1. In the left sidebar, click on the `Collections` tab
-1. There should now be an entry for the smoke tests. Hover over it and click the `|->` icon for a detailed view of every test.
 
 #### Run the Smoke Tests
 1. Run your server. You'll need a running server open before Postman can reach any of your endpoints.
