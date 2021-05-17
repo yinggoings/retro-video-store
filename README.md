@@ -66,8 +66,6 @@ The smoke tests will verify that your API looks correct to the outside world, by
 - Did the API return JSON?
 - Does the JSON contain the expected property names?
 
-We have also included [this video](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1324e06e-9767-49e4-85a0-a98c0122d69a) to show you how to run and use smoke tests.
-
 The smoke tests live in the [test folder](postman-tests). To run them:
 
 #### Import the Smoke Tests
