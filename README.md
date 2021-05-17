@@ -76,10 +76,7 @@ The smoke tests live in the [test folder](postman-tests). To run them:
 1. Click `Import` in the top left
 1. Drag-and-drop the file into the box
 1. In the left sidebar, click on the `Collections` tab
-1. There should now be an entry for the smoke tests. Hover over it and click the `>` icon for a detailed view of every test.
-
-##### Alternatively, Import the Environment File
-1. In the "Manage Environments" window, you can import an environment. We've included the environment file in `test/Video Store API development.postman_environment.json`
+1. There should now be an entry for the smoke tests. Hover over it and click the `|->` icon for a detailed view of every test.
 
 #### Run the Smoke Tests
 1. Run your server. You'll need a running server open before Postman can reach any of your endpoints.
