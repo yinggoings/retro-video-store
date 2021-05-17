@@ -36,7 +36,7 @@ For this project, the list of errors should be formatted like this:
    "total_inventory must be provided and it must be a number"
 ]
 
-// ...or...for a rental endpoint
+// for a rental endpoint
 
 [
    "video_id must match a video in the video store database"
