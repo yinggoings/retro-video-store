@@ -199,7 +199,7 @@ Status: `200`
 
 - The API should return back detailed errors and a status `404: Not Found` if this customer does not exist.
 - The API should return a `400: Bad Request`, if any of the request body fields are missing or invalid.
-  - For example if the `videos_checked_out_count` is not a number.
+  - For example if the `name` is an empty string or is not a string.
 
 ### `DELETE /customer/<id>`  details
 Deletes a specific customer.
