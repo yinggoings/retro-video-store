@@ -366,7 +366,7 @@ Status: `200`
 
 - The API should return back detailed errors and a status `404: Not Found` if this video does not exist.
 - The API should return back a `400 Bad Request` response for missing or invalid fields in the request body.
-  - For example, if `total_inventory` or `available_inventory` are missing or not numbers
+  - For example, if `total_inventory` is missing or is not a number
 
 
 ### `DELETE /video/<id>`  details
