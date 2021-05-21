@@ -10,7 +10,7 @@ class Video(db.Model):
     title = db.Column(db.String(128))
     release_date = db.Column(db.DateTime(), nullable=True)
     total_inventory = db.Column(db.Integer, default=0)
-    available_inventory = db.Column(db.Integer, default=total_inventory)
+    available_inventory = db.Column(db.Integer)
     rentals = db.relationship('Rental', backref='rental', lazy=True)
 
     def json_details(self):

@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint
 
 from app import db
 from app.models.customer import Customer
