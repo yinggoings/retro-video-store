@@ -16,6 +16,8 @@ class Rental(db.Model):
     customer_id = db.Column(db.Integer, db.ForeignKey('customers.id'), nullable=False)
     due_date = db.Column(db.DateTime, default=func.now() + timedelta(days=7))
     status = db.Column(db.String(32), default="Checked_out")
+    customer = relationship("Customer", back_populates="rentals")
+    video = relationship("Video", back_populates="rentals")
 
     @classmethod
     def check_in(cls, customer_id, video_id):
@@ -69,6 +71,10 @@ class Rental(db.Model):
     @classmethod
     def check_out(cls, video_id, customer_id):
         new_rental = cls(video_id=video_id, customer_id=customer_id)
+        # If no available inventory, you can't rent the video
+        if new_rental.video.available_inventory <= 0:
+            return None
+
         new_rental.save()
         video = Video.get_video_by_id(new_rental.video_id)
         customer = Customer.get_customer_by_id(new_rental.customer_id)

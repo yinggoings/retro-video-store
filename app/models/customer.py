@@ -12,7 +12,7 @@ class Customer(db.Model):
     postal_code = db.Column(db.String(32))
     phone = db.Column(db.String(32))
     videos_checked_out_count = db.Column(db.Integer, default=0)
-    rentals = db.relationship('Rental', backref='rentals', lazy=True)
+    rentals = db.relationship('Rental', back_populates='customer', lazy=True)
     
 
     def to_json(self):
