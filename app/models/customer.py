@@ -20,7 +20,7 @@ class Customer(db.Model):
             "id": self.id,
             "name": self.name,
             "registered_at": self.registered_at,
-            "postal_code": self.postal_code,
+            "postal_code": int(self.postal_code),
             "phone": self.phone,
             "videos_checked_out_count": self.videos_checked_out_count,
         }

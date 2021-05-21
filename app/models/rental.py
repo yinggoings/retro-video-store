@@ -28,7 +28,7 @@ class Rental(db.Model):
         if not checked_in_rental:
             return {
                 "message": f"No outstanding rentals for customer # {customer_id} and video {video_id}"
-            }, 404
+            }, 400
 
         checked_in_rental.status = None
 
@@ -45,11 +45,6 @@ class Rental(db.Model):
                 "message": f"Customer id: {customer_id} not found"
             }, 404
 
-        if video.available_inventory <= 0:
-            return {
-                "message": f"Movie {video.title} does not have inventory"
-            }, 400
-
         video.available_inventory += 1
         customer.videos_checked_out_count -= 1
 
@@ -61,7 +56,7 @@ class Rental(db.Model):
         available_inventory = video.available_inventory
 
         return {
-            "id": checked_in_rental.id,
+            # "id": checked_in_rental.id,
             "video_id": checked_in_rental.video_id,
             "customer_id": checked_in_rental.customer_id,
             "videos_checked_out_count": videos_checked_out_count,
@@ -71,13 +66,17 @@ class Rental(db.Model):
     @classmethod
     def check_out(cls, video_id, customer_id):
         new_rental = cls(video_id=video_id, customer_id=customer_id)
+        if not new_rental:
+            return None
+
+        video = Video.get_video_by_id(new_rental.video_id)
+        customer = Customer.get_customer_by_id(new_rental.customer_id)
+
         # If no available inventory, you can't rent the video
-        if new_rental.video.available_inventory <= 0:
+        if video.available_inventory <= 0:
             return None
 
         new_rental.save()
-        video = Video.get_video_by_id(new_rental.video_id)
-        customer = Customer.get_customer_by_id(new_rental.customer_id)
         video.available_inventory -= 1
         customer.videos_checked_out_count += 1
         video.save()
@@ -87,7 +86,7 @@ class Rental(db.Model):
         available_inventory = video.available_inventory
 
         return {
-            "id": new_rental.id,
+            # "id": new_rental.id,
             "video_id": new_rental.video_id,
             "customer_id": new_rental.customer_id,
             "videos_checked_out_count": videos_checked_out_count,
@@ -116,5 +115,6 @@ class Rental(db.Model):
         return {
             "title": video.title,
             "due_date": self.due_date,
-            "checkout_date": (self.due_date - timedelta(days=7))
+            "release_date": video.release_date,
+            #"checkout_date": (self.due_date - timedelta(days=7))
         }
