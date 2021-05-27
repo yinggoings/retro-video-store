@@ -39,6 +39,9 @@ class Customer(db.Model):
         db.session.commit()
                 
     def delete(self):
+        for rental in self.rentals:
+            rental.delete()
+            
         db.session.delete(self)
         db.session.commit()
 
