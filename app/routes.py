@@ -42,12 +42,12 @@ def videos_index():
     return jsonify(videos), 200
 
 
-@customers_bp.route("", methods=["GET"])
+@customers_bp.route("", methods=["GET"], strict_slashes=False)
 def customers_index():
     customers = [customer.to_json() for customer in Customer.get_all_customers()]
     return jsonify(customers), 200
 
-@customers_bp.route("", methods=["POST"])
+@customers_bp.route("", methods=["POST"], strict_slashes=False)
 def customers_create():
     request_body = request.get_json()
 
@@ -68,7 +68,7 @@ def customers_create():
     }, 201
 
 
-@videos_bp.route("", methods=["POST"])
+@videos_bp.route("", methods=["POST"], strict_slashes=False)
 def videos_create():
     request_body = request.get_json()
 
@@ -89,7 +89,7 @@ def videos_create():
         "id": video.id,
     }, 201
 
-@customers_bp.route("/<customer_id>", methods=["GET"])
+@customers_bp.route("/<customer_id>", methods=["GET"], strict_slashes=False)
 def customers_show(customer_id):
     customer = Customer.get_customer_by_id(customer_id)
     if not customer:
@@ -109,7 +109,7 @@ def videos_show(video_id):
     
     return video.to_json(), 200    
 
-@customers_bp.route("/<customer_id>", methods=["PUT"])
+@customers_bp.route("/<customer_id>", methods=["PUT"], strict_slashes=False)
 def customers_update(customer_id):
     customer = Customer.get_customer_by_id(customer_id)
     if not customer:
@@ -131,7 +131,7 @@ def customers_update(customer_id):
 
     return customer.to_json(), 200
 
-@customers_bp.route("<customer_id>", methods=["DELETE"])
+@customers_bp.route("<customer_id>", methods=["DELETE"], strict_slashes=False)
 def customers_delete(customer_id):
     customer = Customer.get_customer_by_id(customer_id)
     if not customer:
@@ -145,7 +145,7 @@ def customers_delete(customer_id):
         "id": customer.id,
     }, 200
 
-@videos_bp.route("/<video_id>", methods=["PUT"])
+@videos_bp.route("/<video_id>", methods=["PUT"], strict_slashes=False)
 def videos_update(video_id):
     video = Video.get_video_by_id(video_id)
     if not video:
@@ -167,7 +167,7 @@ def videos_update(video_id):
 
     return video.to_json(), 200
 
-@videos_bp.route("<video_id>", methods=["DELETE"])
+@videos_bp.route("<video_id>", methods=["DELETE"], strict_slashes=False)
 def videos_delete(video_id):
     video = Video.get_video_by_id(video_id)
     if not video:
@@ -181,7 +181,7 @@ def videos_delete(video_id):
         "id": video.id,
     }, 200
 
-@rentals_bp.route("check-out", methods=["POST"])
+@rentals_bp.route("check-out", methods=["POST"], strict_slashes=False)
 def check_out_video():
     request_body = request.get_json()
 
@@ -211,7 +211,7 @@ def check_out_video():
     
     return result
 
-@rentals_bp.route("check-in", methods=["POST"])
+@rentals_bp.route("check-in", methods=["POST"], strict_slashes=False)
 def check_in_video():
     request_body = request.get_json()
 
@@ -238,7 +238,7 @@ def check_in_video():
     
     return result
 
-@videos_bp.route('<video_id>/rentals', methods=["GET"])
+@videos_bp.route('<video_id>/rentals', methods=["GET"], strict_slashes=False)
 def get_rentals_for_video(video_id):
     video = Video.get_video_by_id(video_id)
     if not video:
@@ -262,7 +262,7 @@ def get_rentals_for_video(video_id):
 
     return jsonify(results), 200
 
-@customers_bp.route('<customer_id>/rentals', methods=["GET"])
+@customers_bp.route('<customer_id>/rentals', methods=["GET"], strict_slashes=False)
 def get_rentals_for_customer(customer_id):
     customer = Customer.get_customer_by_id(customer_id)
     if not customer:
