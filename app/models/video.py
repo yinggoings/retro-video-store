@@ -10,8 +10,14 @@ class Video(db.Model):
     title = db.Column(db.String(128))
     release_date = db.Column(db.DateTime(), nullable=True)
     total_inventory = db.Column(db.Integer, default=0)
-    available_inventory = db.Column(db.Integer, default=total_inventory)
     rentals = db.relationship('Rental', back_populates='video', lazy=True)
+
+    def get_available_inventory(self):
+        count = 0
+        for rental in self.rentals:
+            if rental.status:
+                count +=1
+        return self.total_inventory - count
 
     def json_details(self):
         return {
@@ -19,6 +25,7 @@ class Video(db.Model):
             "title": self.title,
             "release_date": self.release_date,
             "total_inventory": self.total_inventory,
+            "available_inventory": self.get_available_inventory(),
         }
 
     def to_json(self):
@@ -26,7 +33,8 @@ class Video(db.Model):
             "id": self.id,
             "title": self.title,
             "release_date": self.release_date,
-            "total_inventory": self.total_inventory,            
+            "total_inventory": self.total_inventory,
+            "available_inventory": self.get_available_inventory(),            
         }
 
     @classmethod

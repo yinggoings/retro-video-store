@@ -24,7 +24,6 @@ class Rental(db.Model):
         checked_in_rental = cls.query.filter(Rental.customer_id==customer_id).filter(Rental.video_id==video_id).filter(Rental.status=="Checked_out").first()
         
 
-
         if not checked_in_rental:
             return {
                 "message": f"No outstanding rentals for customer # {customer_id} and video {video_id}"
@@ -45,15 +44,12 @@ class Rental(db.Model):
                 "message": f"Customer id: {customer_id} not found"
             }, 404
 
-        video.available_inventory += 1
-        customer.videos_checked_out_count -= 1
-
         checked_in_rental.save()
         video.save()
         customer.save()
     
-        videos_checked_out_count = customer.videos_checked_out_count
-        available_inventory = video.available_inventory
+        videos_checked_out_count = customer.get_videos_checked_out_count()
+        available_inventory = video.get_available_inventory()
 
         return {
             # "id": checked_in_rental.id,
@@ -73,17 +69,15 @@ class Rental(db.Model):
         customer = Customer.get_customer_by_id(new_rental.customer_id)
 
         # If no available inventory, you can't rent the video
-        if video.available_inventory <= 0:
+        if video.get_available_inventory() <= 0:
             return None
 
         new_rental.save()
-        video.available_inventory -= 1
-        customer.videos_checked_out_count += 1
         video.save()
         customer.save()
     
-        videos_checked_out_count = customer.videos_checked_out_count
-        available_inventory = video.available_inventory
+        videos_checked_out_count = customer.get_videos_checked_out_count()
+        available_inventory = video.get_available_inventory()
 
         return {
             # "id": new_rental.id,

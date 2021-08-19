@@ -11,8 +11,14 @@ class Customer(db.Model):
     registered_at = db.Column(db.DateTime(), nullable=True)
     postal_code = db.Column(db.String(32))
     phone = db.Column(db.String(32))
-    videos_checked_out_count = db.Column(db.Integer, default=0)
     rentals = db.relationship('Rental', back_populates='customer', lazy=True)
+
+    def get_videos_checked_out_count(self):
+        count = 0
+        for rental in self.rentals:
+            if rental.status:
+                count +=1
+        return count
 
     def to_json(self):
         return {
@@ -21,7 +27,7 @@ class Customer(db.Model):
             "registered_at": self.registered_at,
             "postal_code": self.postal_code,
             "phone": self.phone,
-            "videos_checked_out_count": self.videos_checked_out_count,
+            "videos_checked_out_count": self.get_videos_checked_out_count(),
         }
 
     @classmethod
