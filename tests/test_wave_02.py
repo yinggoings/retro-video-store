@@ -179,4 +179,18 @@ def test_rentals_by_customer_no_rentals(client, one_customer):
     assert response.status_code == 200
     assert response_body == []
 
+def test_can_delete_customer_with_rental(client, one_checked_out_video):
+    # Act
+    response = client.delete("/customers/1")
+
+    #Assert
+    assert response.status_code == 200
+
+def test_can_delete_video_with_rental(client, one_checked_out_video):
+    # Act
+    response = client.delete("/videos/1")
+
+    #Assert
+    assert response.status_code == 200
+
 
