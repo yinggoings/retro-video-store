@@ -13,8 +13,6 @@ CUSTOMER_NAME = "A Brand New Customer"
 CUSTOMER_POSTAL_CODE = "12345"
 CUSTOMER_PHONE = "123-123-1234"
 
-
-
 @pytest.fixture
 def app():
     # create the app with a test config dictionary
