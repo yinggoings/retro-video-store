@@ -200,7 +200,7 @@ def check_out_video():
 
     if not customer:
         return {
-            "message": f"Customer {request_body['customer_id']} not found"
+            "message": f"Customer {request_body['customer_id']} was not found"
         }, 404
 
     result = Rental.check_out(video_id=video.id, customer_id=customer.id)
@@ -228,7 +228,7 @@ def check_in_video():
 
     if not customer:
         return {
-            "message": f"Customer {request_body['customer_id']} not found"
+            "message": f"Customer {request_body['customer_id']} was not found"
         }, 404
 
     result = Rental.check_in(video_id=video.id, customer_id=customer.id)
@@ -262,7 +262,7 @@ def get_rentals_for_customer(customer_id):
     customer = Customer.get_customer_by_id(customer_id)
     if not customer:
         return {
-            "message": f"Customer {customer_id} not found"
+            "message": f"Customer {customer_id} was not found"
         }, 404
 
     rentals = customer.rentals

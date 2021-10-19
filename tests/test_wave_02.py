@@ -74,7 +74,7 @@ def test_rentals_by_video(client, one_checked_out_video):
     len(response_body) == 1
     response_body[0]["name"] == CUSTOMER_NAME
 
-def test_rentals_by_video_video_not_found(client):
+def test_rentals_by_video_not_found(client):
     response = client.get("/videos/1/rentals")
 
     response_body = response.get_json()
@@ -82,7 +82,7 @@ def test_rentals_by_video_video_not_found(client):
     assert response.status_code == 404
     assert response_body["message"] == "Video 1 was not found"
 
-def test_rentals_by_video_video_no_rental(client, one_video):
+def test_rentals_by_video_no_rentals(client, one_video):
     response = client.get("/videos/1/rentals")
 
     response_body = response.get_json()
@@ -90,4 +90,29 @@ def test_rentals_by_video_video_no_rental(client, one_video):
     assert response.status_code == 200
     assert response_body == []
 
-#def test_rentals_by_customer(client, one_checked_out_video):
+def test_rentals_by_customer(client, one_checked_out_video):
+    response = client.get("/customers/1/rentals")
+
+    response_body = response.get_json()
+
+    response.status_code == 200
+    len(response_body) == 1
+    response_body[0]["title"] == VIDEO_TITLE
+
+def test_rentals_by_customer_not_found(client):
+    response = client.get("/customers/1/rentals")
+
+    response_body = response.get_json()
+
+    assert response.status_code == 404
+    assert response_body["message"] == "Customer 1 was not found"
+
+def test_rentals_by_customer_no_rentals(client, one_customer):
+    response = client.get("/customers/1/rentals")
+
+    response_body = response.get_json()
+
+    assert response.status_code == 200
+    assert response_body == []
+
+
