@@ -206,7 +206,7 @@ def check_out_video():
     result = Rental.check_out(video_id=video.id, customer_id=customer.id)
 
     if not result:
-        return {"Message": "Could not perform checkout"}, 400
+        return {"message": "Could not perform checkout"}, 400
     
     return result
 
