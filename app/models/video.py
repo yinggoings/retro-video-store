@@ -19,15 +19,6 @@ class Video(db.Model):
                 count +=1
         return self.total_inventory - count
 
-    def json_details(self):
-        return {
-            "id": self.id,
-            "title": self.title,
-            "release_date": self.release_date,
-            "total_inventory": self.total_inventory,
-            "available_inventory": self.get_available_inventory(),
-        }
-
     def to_json(self):
         return {
             "id": self.id,

@@ -176,6 +176,16 @@ def test_update_video_not_found(client):
     assert response.status_code == 404
     assert response_body == {"message": "Video 1 was not found"}
 
+def test_update_video_invalid_data(client, one_video):
+    # Act
+    response = client.put("/videos/1", json={
+        "total_inventory": 2,
+        "release_date": "01-01-2021"
+    })
+
+    # Assert
+    assert response.status_code == 400
+
 
 # --------------------------------
 # ----------- CUSTOMERS ----------
@@ -342,6 +352,15 @@ def test_update_customer_not_found(client):
     assert response.status_code == 404
     assert response_body == {"message": "Customer 1 was not found"}
 
+def test_update_customer_invalid_data(client, one_customer):
+    # Act
+    response = client.put("/customers/1", json={
+        "phone": f"Updated ${CUSTOMER_PHONE}",
+        "postal_code": f"Updated ${CUSTOMER_POSTAL_CODE}"
+    })
+
+    # Assert
+    assert response.status_code == 400
 
 
 
