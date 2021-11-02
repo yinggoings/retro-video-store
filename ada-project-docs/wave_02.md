@@ -35,6 +35,8 @@ Status: `200`
 }
 ```
 
+*Hint: We recommended calculating the available inventory dynamically. The video's available inventory is equal to the video's total inventory minus the number of rentals associated with that video.*
+
 #### Errors & Edge Cases to Check
 
 - The API should return back detailed errors and a status `404: Not Found` if the customer does not exist
@@ -68,6 +70,8 @@ Status: `200`
   "available_inventory": 6
 }
 ```
+
+*Hint: We recommend calculating the videos checked out count dynamically. The customer's videos checked out count is the number of rentals associated with that customer.*
 
 #### Errors and Edge Cases to Check
 
