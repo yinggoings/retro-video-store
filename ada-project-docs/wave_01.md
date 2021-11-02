@@ -48,6 +48,8 @@ This could be something as simple as:
 ]
 ```
 
+Some of the tests require a particular response body for 400 levels responses. In other cases, you are free to choose.
+
 # Requirements
 
 Here we will list every endpoint for these entities.
@@ -394,6 +396,3 @@ Status: `200`
 
 - The API should return back detailed errors and a status `404: Not Found` if this video does not exist.
 
-## Tests
-
-There are no Pytest tests for this project.  There are Postman test scripts for all of these endpoints.  If you want to write your own tests for this project, we recommend using the tests in Task List as a template.
