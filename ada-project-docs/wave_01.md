@@ -86,14 +86,14 @@ Status: `200`
     "id": 1,
     "name": "Shelley Rocha",
     "registered_at": "Wed, 29 Apr 2015 07:54:14 -0700",
-    "postal_code": 24309,
+    "postal_code": "24309",
     "phone": "(322) 510-8695"
   },
   {
     "id": 2,
     "name": "Curran Stout",
     "registered_at": "Wed, 16 Apr 2014 21:40:20 -0700",
-    "postal_code": 94267,
+    "postal_code": "94267",
     "phone": "(908) 949-6758"
   }
 ]
@@ -123,7 +123,7 @@ Status: `200`
     "id": 2,
     "name": "Curran Stout",
     "registered_at": "Wed, 16 Apr 2014 21:40:20 -0700",
-    "postal_code": 94267,
+    "postal_code": "94267",
     "phone": "(908) 949-6758"
 }
 ```
@@ -140,7 +140,7 @@ Creates a new video with the given params.
 Request Body Param | Type | Details
 --- | --- | ---
 `name` | string | The name of the customer
-`postal_code` | int | The postal code of the customer
+`postal_code` | string | The postal code of the customer
 `phone` | string | The phone of the customer
 
 #### Response
@@ -174,7 +174,7 @@ Arg | Type | Details
 Request Body Param | Type | Details
 --- | --- | ---
 `name` | string | The name of the customer
-`postal_code` | int | The postal code of the customer
+`postal_code` | string | The postal code of the customer
 `phone` | string | The phone of the customer
 
 #### Response
@@ -188,7 +188,7 @@ Status: `200`
     "id": 2,
     "name": "Curran Stout",
     "registered_at": "Wed, 16 Apr 2014 21:40:20 -0700",
-    "postal_code": 94267,
+    "postal_code": "94267",
     "phone": "(908) 949-6758"
 }
 ```
